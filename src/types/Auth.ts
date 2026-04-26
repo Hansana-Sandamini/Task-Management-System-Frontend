@@ -7,9 +7,11 @@ export interface LoginRequest {
 
 export interface LoginResponse {
     message: string
-    accessToken: string
-    refreshToken: string
-    user: IUser
+    data: {
+        accessToken: string
+        refreshToken: string
+        user: IUser
+    }
 }
 
 export interface RegisterRequest {
