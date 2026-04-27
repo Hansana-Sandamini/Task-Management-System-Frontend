@@ -46,8 +46,8 @@ const Dashboard = () => {
         }
     }
 
-    const handleEditTask = (task: ITask) => {
-        navigate('/tasks')
+    const handleEditTask = () => {
+            navigate('/tasks')
     }
 
     const handleLogout = () => {
