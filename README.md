@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+# 📝 Task Management System - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React-based frontend for a Task Management System that allows users to register, log in, and manage their tasks efficiently through a clean and responsive UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Demo
+🔗 https://task-management-system-frontend-ssi.vercel.app
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📸 Screenshots
 
-## Expanding the ESLint configuration
+### 🏠 Home Page
+<img width="1903" height="1083" alt="Screenshot from 2026-04-27 13-33-57" src="https://github.com/user-attachments/assets/42461535-2eca-4a35-b23d-d931da5072d6" />
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🔐 Register Page
+<img width="1903" height="1083" alt="Screenshot from 2026-04-27 13-34-08" src="https://github.com/user-attachments/assets/2c5fdb83-dfca-4ee9-aa57-7104cc211515" />
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 🔑 Login Page
+<img width="1903" height="1083" alt="Screenshot from 2026-04-27 13-34-31" src="https://github.com/user-attachments/assets/ecdf2d46-6cc0-4218-8fd6-5cb1aff7e589" />
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 📊 Dashboard
+<img width="1909" height="1077" alt="Screenshot from 2026-04-27 13-45-59" src="https://github.com/user-attachments/assets/f312a2ea-9566-4f83-986f-d5000f227ead" />
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+### 📋 Tasks Page
+<img width="1909" height="1077" alt="Screenshot from 2026-04-27 13-45-45" src="https://github.com/user-attachments/assets/7aac4710-0802-4d8a-bedf-400b72f595e3" />
+
+---
+
+## 📂 How to Run Locally
+
+```bash
+# Clone repo
+git clone https://github.com/Hansana-Sandamini/Task-Management-System-Frontend
+
+# Install dependencies
+npm install
+
+# Run project
+npm run dev
+
