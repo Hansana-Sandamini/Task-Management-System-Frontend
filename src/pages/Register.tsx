@@ -35,10 +35,9 @@ const Register = () => {
         setLoading(true)
         
         try {
-            const fullName = `${formData.firstName} ${formData.lastName}`.trim()
-            
             await api.post('/auth/register', {
-                name: fullName,
+                firstname: formData.firstName,
+                lastname: formData.lastName,
                 email: formData.email,
                 password: formData.password
             })
