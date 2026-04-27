@@ -1,9 +1,8 @@
 import React, { useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 import api from '../api/axiosInstance'
 import toast from 'react-hot-toast'
-import { useNavigate } from "react-router-dom"
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -29,11 +28,18 @@ const Login = () => {
                 password: formData.password
             })
             
-            const { token, refreshToken } = response.data
-            login(token, refreshToken)
-            toast.success('Login successful!')
-            navigate("/dashboard")
+            const { accessToken, refreshToken, user } = response.data.data
             
+            // Store tokens
+            localStorage.setItem('accessToken', accessToken)
+            localStorage.setItem('refreshToken', refreshToken)
+            localStorage.setItem('user', JSON.stringify(user))
+            
+            // Update auth context            
+            login(accessToken, refreshToken, user)
+            
+            toast.success('Login successful!')
+            navigate('/dashboard')
         } catch (error: any) {
             toast.error(error.response?.data?.message || 'Login failed')
         } finally {

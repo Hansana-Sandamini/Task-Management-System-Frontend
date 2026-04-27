@@ -4,6 +4,7 @@ import Home from "../pages/Home"
 import Login from "../pages/Login"
 import Register from "../pages/Register"
 import Dashboard from "../pages/Dashboard"
+import Tasks from "../pages/Tasks"
 
 const AppRoutes = () => {    
     return (
@@ -20,6 +21,14 @@ const AppRoutes = () => {
                     element={
                         <ProtectedRoute>
                             <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/tasks"
+                    element={
+                        <ProtectedRoute>
+                            <Tasks />
                         </ProtectedRoute>
                     }
                 />

@@ -1,9 +1,7 @@
-import React, { useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { AuthContext } from '../context/AuthContext'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import api from '../api/axiosInstance'
 import toast from 'react-hot-toast'
-import { useNavigate } from "react-router-dom"
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -14,7 +12,6 @@ const Register = () => {
         confirmPassword: ''
     })
     const [loading, setLoading] = useState(false)
-    const { login } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,19 +34,17 @@ const Register = () => {
         
         setLoading(true)
         
-        try {            
-            const response = await api.post('/auth/register', {
-                firstname: formData.firstName,
-                lastname: formData.lastName,
+        try {
+            const fullName = `${formData.firstName} ${formData.lastName}`.trim()
+            
+            await api.post('/auth/register', {
+                name: fullName,
                 email: formData.email,
                 password: formData.password
             })
             
-            const { token, refreshToken } = response.data
-            login(token, refreshToken)
-            toast.success("Account created! Please login.")
-            navigate("/login")
-
+            toast.success('Registration successful! Please login.')
+            navigate('/login')
         } catch (error: any) {
             toast.error(error.response?.data?.message || 'Registration failed')
         } finally {
@@ -63,7 +58,6 @@ const Register = () => {
                 <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Register</h2>
                 
                 <form onSubmit={handleSubmit}>
-                    {/* First Name & Last Name - Two Columns */}
                     <div className="grid grid-cols-2 gap-4 mb-4">
                         <div>
                             <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -119,9 +113,7 @@ const Register = () => {
                             onChange={handleChange}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-slate-600"
                             required
-                            minLength={6}
                         />
-                        <p className="text-xs text-gray-500 mt-1">Password must be at least 6 characters</p>
                     </div>
 
                     <div className="mb-6">

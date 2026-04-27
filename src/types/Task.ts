@@ -15,3 +15,17 @@ export interface ITask {
     createdAt: string
     updatedAt: string
 }
+
+export type Task = ITask
+
+export interface TaskCardProps {
+    task: ITask
+    onEdit: (task: ITask) => void
+    onDelete: (id: string) => void
+}
+
+export interface TaskItemProps {
+    task: ITask
+    onEdit: (task: ITask) => void
+    onDelete: (id: string) => void
+}
